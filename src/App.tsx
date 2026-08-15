@@ -20,7 +20,8 @@ const PROJECTS = [
     ],
     tech: ["React Native", "Expo", "TypeScript", "Firebase", "Node.js", "Cloudinary"],
     repo: "https://github.com/akabhishek2316/TruSphere-Chat-App",
-    featured: true,
+apk: "/downloads/TruSphere.apk",
+featured: true,
     challenge:
       "Synchronizing communication state such as messages, presence and read status across real-world mobile sessions.",
   },
@@ -40,26 +41,11 @@ const PROJECTS = [
     ],
     tech: ["React", "Firebase", "JavaScript", "Leaflet"],
     repo: "https://github.com/akabhishek2316/Rakshiva",
+live: "https://rakshiva.netlify.app",
     challenge:
       "Connecting emergency workflows, location data and guardian-side monitoring into one practical safety experience.",
   },
-  {
-    number: "03",
-    type: "LOCATION APPLICATION",
-    name: "Bhandara Locator",
-    description:
-      "A location-based application created to explore nearby Bhandara locations through a map-focused interface.",
-    features: [
-      "Location-based UI",
-      "Map integration",
-      "Responsive interface",
-      "Location discovery",
-    ],
-    tech: ["React Native", "Expo", "Maps", "JavaScript"],
-    repo: "https://github.com/akabhishek2316",
-    challenge:
-      "Designing a simple map-focused experience for discovering location-based information.",
-  },
+  
 ];
 
 const milestones = [
@@ -325,21 +311,39 @@ function App() {
               </div>
 
               <div className="project-bottom">
-                <div className="project-tech" aria-label={`${project.name} technologies`}>
-                  {project.tech.map((technology) => (
-                    <span key={technology}>{technology}</span>
-                  ))}
-                </div>
+  <div
+    className="project-tech"
+    aria-label={`${project.name} technologies`}
+  >
+    {project.tech.map((technology) => (
+      <span key={technology}>{technology}</span>
+    ))}
+  </div>
 
-                <a
-                  href={project.repo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-link"
-                >
-                  View on GitHub ↗
-                </a>
-              </div>
+  <div className="project-links">
+    <a
+      href={project.repo}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="project-link"
+    >
+      GitHub ↗
+    </a>
+
+    {project.live && (
+      <a
+        href={project.live}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="project-link"
+      >
+        Live Demo ↗
+      </a>
+    )}
+
+    
+  </div>
+</div>
             </article>
           ))}
         </div>

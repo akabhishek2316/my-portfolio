@@ -479,6 +479,13 @@ a {
 
   background: var(--card);
 
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+  height: auto;
+  overflow: hidden;
+
   transition:
     transform 0.3s ease,
     border-color 0.3s ease;
@@ -491,6 +498,13 @@ a {
 
 .project-featured {
   grid-column: 1 / -1;
+}
+
+.project-content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: auto;
 }
 
 .project-top {
@@ -588,6 +602,59 @@ a {
 
 .project-link:hover {
   color: var(--purple-light);
+}
+
+.project-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.project-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  margin-top: auto;
+  padding-top: 2px;
+
+  min-width: 0;
+}
+
+.project-bottom .project-tech {
+  margin-bottom: 0;
+  flex: 1;
+}
+
+.project-bottom .project-link {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .project-links {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 560px) {
+  .project-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .project-bottom .project-tech {
+    width: 100%;
+  }
+
+  .project-bottom .project-link {
+    white-space: normal;
+  }
 }
 
 /* ================= EDUCATION ================= */
@@ -864,27 +931,51 @@ button {
 /* ================= PROJECT CHALLENGE ================= */
 
 .project-challenge {
+  width: 100%;
   max-width: 760px;
+
   margin-top: 22px;
+  margin-bottom: 24px;
+
   padding: 16px 18px;
+
   border-left: 2px solid var(--purple);
   background: rgba(155, 120, 255, 0.045);
+
+  display: block;
+
+  overflow: visible;
 }
 
 .project-challenge > span {
   display: block;
-  margin-bottom: 7px;
+
+  margin: 0 0 8px;
+
   color: var(--muted-2);
+
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 1.5px;
+  line-height: 1.4;
 }
 
 .project-challenge p {
-  margin: 0;
+  display: block;
+
+  width: 100%;
+  max-width: none;
+
+  margin: 0 !important;
+
   color: #9da5b5;
+
   font-size: 12px;
   line-height: 1.7;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 /* ================= DEVELOPMENT JOURNEY ================= */
